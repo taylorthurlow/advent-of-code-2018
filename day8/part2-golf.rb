@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
 def process(list)
-  num_children = list.delete_at(0)
-  num_metadata = list.delete_at(0)
+  num_children = list.shift
+  num_metadata = list.shift
   [(0..num_children - 1).to_a.map { process(list) }, list.shift(num_metadata)]
 end
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
 def process(list, all_nodes)
-  num_children = list.delete_at(0)
-  num_metadata = list.delete_at(0)
+  num_children = list.shift
+  num_metadata = list.shift
   all_nodes << [(0..num_children - 1).to_a.map { process(list, all_nodes) }, list.shift(num_metadata)]
   all_nodes.last
 end
